@@ -1,0 +1,16 @@
+---
+export const layout = '../layouts/BaseLayout.astro';
+const title = 'Home';
+
+// Component Imports
+import Counter from '../components/Counter.vue';
+---
+
+<div class="row">
+	<div class="col-12">
+		<Counter client:visible>
+			<h1>Welcome to My Website</h1>
+			<p>This is a simple responsive website.</p>
+		</Counter>
+	</div>
+</div>
