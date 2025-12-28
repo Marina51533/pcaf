@@ -1,16 +1,19 @@
 ---
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/global.css';
+import LanguagePicker from '../components/LanguagePicker.astro';
 
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props;
+const { currentLocale } = Astro;
+const localePath = currentLocale === 'cs' ? '' : `/${currentLocale}`;
 ---
 
 <!doctype html>
-<html lang="cs">
+<html lang={currentLocale}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Czech Freelance Association" />
@@ -23,28 +26,29 @@ const { title } = Astro.props;
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-primary-theme shadow-sm">
 			<div class="container">
-				<a class="navbar-brand fw-bold" href="/">Czech Freelance Platform</a>
+				<a class="navbar-brand fw-bold" href={localePath || '/'}>Czech Freelance Platform</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Přepnout navigaci">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item">
-							<a class="nav-link" href="/">Domů</a>
+							<a class="nav-link" href={localePath || '/'}>{currentLocale === 'cs' ? 'Domů' : 'Home'}</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/news">Aktuality</a>
+							<a class="nav-link" href={`${localePath}/news`}>{currentLocale === 'cs' ? 'Aktuality' : 'News'}</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/questions">Dotazy</a>
+							<a class="nav-link" href={`${localePath}/questions`}>{currentLocale === 'cs' ? 'Dotazy' : 'Questions'}</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/stories">Vaše příběhy</a>
+							<a class="nav-link" href={`${localePath}/stories`}>{currentLocale === 'cs' ? 'Vaše příběhy' : 'Stories'}</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="/about">O nás</a>
+							<a class="nav-link" href={`${localePath}/about`}>{currentLocale === 'cs' ? 'O nás' : 'About'}</a>
 						</li>
 					</ul>
+					<LanguagePicker />
 				</div>
 			</div>
 		</nav>
@@ -58,17 +62,17 @@ const { title } = Astro.props;
 				<div class="row">
 					<div class="col-md-6 mb-4 mb-md-0">
 						<h5 class="fw-bold">Czech Freelance Association</h5>
-						<p>Dáváme prostor hlasu freelancerů.</p>
+						<p>{currentLocale === 'cs' ? 'Dáváme prostor hlasu freelancerů.' : 'Giving a voice to freelancers.'}</p>
 					</div>
 					<div class="col-md-3 mb-4 mb-md-0">
-						<h5 class="fw-bold">Kontakt</h5>
+						<h5 class="fw-bold">{currentLocale === 'cs' ? 'Kontakt' : 'Contact'}</h5>
 						<ul class="list-unstyled">
 							<li>Email: <a href="mailto:info@freelance.cz" class="text-white text-decoration-none">info@freelance.cz</a></li>
-							<li>Telefon: <a href="tel:+420123456789" class="text-white text-decoration-none">+420 123 456 789</a></li>
+							<li>{currentLocale === 'cs' ? 'Telefon' : 'Phone'}: <a href="tel:+420123456789" class="text-white text-decoration-none">+420 123 456 789</a></li>
 						</ul>
 					</div>
 					<div class="col-md-3">
-						<h5 class="fw-bold">Sledujte nás</h5>
+						<h5 class="fw-bold">{currentLocale === 'cs' ? 'Sledujte nás' : 'Follow us'}</h5>
 						<ul class="list-unstyled">
 							<li><a href="#" class="text-white text-decoration-none">Linkedin</a></li>
 							<li><a href="#" class="text-white text-decoration-none">Facebook</a></li>
@@ -77,7 +81,7 @@ const { title } = Astro.props;
 				</div>
 				<hr class="my-4 bg-white opacity-25">
 				<div class="text-center">
-					<p class="mb-0">&copy; 2025 Czech Freelance Association. Všechna práva vyhrazena.</p>
+					<p class="mb-0">&copy; 2025 Czech Freelance Association. {currentLocale === 'cs' ? 'Všechna práva vyhrazena.' : 'All rights reserved.'}</p>
 				</div>
 			</div>
 		</footer>

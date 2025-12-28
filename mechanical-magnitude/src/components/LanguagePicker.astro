@@ -1,0 +1,46 @@
+---
+const { currentLocale } = Astro;
+const locales = [
+  { code: 'cs', label: 'CZ', flag: '🇨🇿' },
+  { code: 'en', label: 'EN', flag: '🇬🇧' }
+];
+---
+
+<div class="nav-item dropdown ms-lg-3">
+  <button 
+    class="btn btn-outline-light dropdown-toggle d-flex align-items-center gap-2" 
+    type="button" 
+    id="languageDropdown" 
+    data-bs-toggle="dropdown" 
+    aria-expanded="false"
+  >
+    <span>{locales.find(l => l.code === currentLocale)?.flag}</span>
+    <span class="d-none d-md-inline">{locales.find(l => l.code === currentLocale)?.label}</span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="languageDropdown">
+    {locales.map((locale) => (
+      <li>
+        <a 
+          class={`dropdown-item d-flex align-items-center gap-2 ${currentLocale === locale.code ? 'active' : ''}`} 
+          href={locale.code === 'cs' ? '/' : `/${locale.code}/`}
+        >
+          <span>{locale.flag}</span>
+          <span>{locale.label === 'CZ' ? 'Čeština' : 'English'}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .dropdown-item.active {
+    background-color: var(--color-primary);
+  }
+  .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: white;
+  }
+</style>
