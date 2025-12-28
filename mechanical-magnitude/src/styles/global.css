@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Custom Utility Classes */
 .bg-primary-theme { background-color: var(--color-primary) !important; color: var(--color-white) !important; }
-.bg-secondary-theme { background-color: var(--color-secondary) !important; color: var(--color-white) !important; }
+.bg-secondary-theme { background-color: var(--color-secondary) !important; color: var(--color-primary) !important; }
 .bg-accent-theme { background-color: var(--color-accent) !important; }
 .bg-highlight-theme { background-color: var(--color-highlight) !important; }
 
@@ -52,17 +52,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-secondary-theme {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
+  background-color: var(--color-secondary) !important;
+  color: var(--color-primary) !important;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  transition: opacity 0.2s;
+  font-weight: 600;
+  transition: transform 0.2s, opacity 0.2s;
+  display: inline-block;
 }
 
 .btn-secondary-theme:hover {
   opacity: 0.9;
-  color: var(--color-white);
+  transform: scale(1.05);
+  color: var(--color-primary) !important;
 }
 
 /* Mobile Adaptivity Tweaks */
@@ -81,6 +84,26 @@ h1, h2, h3, h4, h5, h6 {
   .how-to-text { font-size: 1.25rem !important; }
   .problem-text { font-size: 1.25rem !important; }
   .problem-number { font-size: 4rem !important; margin-right: 1rem !important; }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+  
+  .animate-fade-in-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 /* Goal Cards Styling */
@@ -286,6 +309,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .carousel-caption-custom h1 {
   color: var(--color-white) !important;
+}
+
+.carousel-caption-custom .btn-secondary-theme {
+  color: var(--color-white) !important;
+  background-color: var(--color-secondary) !important;
+}
+
+.carousel-caption-custom .btn-secondary-theme:hover {
+  color: var(--color-white) !important;
+  background-color: var(--color-secondary) !important;
+  opacity: 0.9;
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {
