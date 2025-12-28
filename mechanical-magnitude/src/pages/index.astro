@@ -1,16 +1,154 @@
 ---
-export const layout = '../layouts/BaseLayout.astro';
-const title = 'Home';
-
-// Component Imports
-import Counter from '../components/Counter.vue';
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Domů | Czech Freelance Platform';
 ---
 
-<div class="row">
-	<div class="col-12">
-		<Counter client:visible>
-			<h1>Welcome to My Website</h1>
-			<p>This is a simple responsive website.</p>
-		</Counter>
-	</div>
-</div>
+<BaseLayout title={title}>
+	<section class="hero-slider">
+		<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+			</div>
+			<div class="carousel-inner">
+				<!-- Slide 1 -->
+				<div class="carousel-item active" style="background-image: url('/img/background.jpg');">
+					<div class="carousel-overlay">
+						<div class="carousel-caption-custom">
+							<h1 class="display-4 fw-bold mb-4">Dáváme prostor hlasu freelancerů</h1>
+							<p class="lead mb-4">Legislativní změny, které ovlivňují práci na volné noze, často vznikají bez přímé zkušenosti lidí, kterých se týkají. V praxi pak přinášejí nejistotu a nejasná pravidla.</p>
+							<a href="#" class="btn btn-secondary-theme btn-lg">Chci se stát členem</a>
+						</div>
+					</div>
+				</div>
+				<!-- Slide 2 -->
+				<div class="carousel-item" style="background-image: url('/img/background.jpg');">
+					<div class="carousel-overlay">
+						<div class="carousel-caption-custom">
+							<h1 class="display-4 fw-bold mb-4">Freelanceři mají právo být slyšet.</h1>
+							<p class="lead mb-4">Chceme přispívat k věcné a odborné debatě o zákonech a regulacích a upozorňovat na jejich skutečné dopady na práci freelancerů v Česku.</p>
+							<a href="#" class="btn btn-secondary-theme btn-lg">Chci se stát členem</a>
+						</div>
+					</div>
+				</div>
+				<!-- Slide 3 -->
+				<div class="carousel-item" style="background-image: url('/img/background.jpg');">
+					<div class="carousel-overlay">
+						<div class="carousel-caption-custom">
+							<h1 class="display-4 fw-bold mb-4">Přidejte se k nám, společně jsme slyšet!</h1>
+							<p class="lead mb-4">Staňte se součástí komunity, která aktivně ovlivňuje budoucnost podnikání v Česku.</p>
+							<a href="#" class="btn btn-secondary-theme btn-lg">Chci se stát členem</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Předchozí</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Další</span>
+			</button>
+		</div>
+	</section>
+
+	<section class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">Cíle</h2>
+			<div class="row text-center">
+				<div class="col-md-4">
+					<div class="card h-100 border-0 shadow-sm bg-highlight-theme">
+						<div class="card-body">
+							<p class="card-text fw-bold">Hlas freelancerů zazníval v debatě o legislativních změnách.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card h-100 border-0 shadow-sm bg-accent-theme">
+						<div class="card-body">
+							<p class="card-text fw-bold">Pravidla pro práci na volné noze byla srozumitelná a předvídatelná.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="card h-100 border-0 shadow-sm bg-highlight-theme">
+						<div class="card-body">
+							<p class="card-text fw-bold">O freelancerech se nerozhodovalo bez jejich zapojení.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-5 bg-accent-theme">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3 class="text-primary-theme">Jaké problémy řešíme</h3>
+					<ul class="list-group list-group-flush bg-transparent">
+						<li class="list-group-item bg-transparent border-0 ps-0">Nejasná legislativa a časté změny pravidel</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Nejistota kolem postavení freelancerů</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Nedostatek reálných dat a zkušeností z praxe v legislativní debatě</li>
+					</ul>
+				</div>
+				<div class="col-md-6">
+					<h3 class="text-primary-theme">Jak to uděláme</h3>
+					<ul class="list-group list-group-flush bg-transparent">
+						<li class="list-group-item bg-transparent border-0 ps-0">Sledujeme připravované zákony a změny</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Publikujeme odborné komentáře a články</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Spolupracujeme s médii</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Sbíráme zkušenosti freelancerů z praxe</li>
+						<li class="list-group-item bg-transparent border-0 ps-0">Přispíváme k veřejné a odborné diskusi</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-4">Freelanceři v číslech</h2>
+			<div class="row">
+				<div class="col-md-8 mx-auto text-center">
+					<p>V Česku je více než 1,1 milionu osob samostatně výdělečně činných (OSVČ) registrovaných u České správy sociálního zabezpečení — z toho téměř 700 000 OSVČ jako hlavní činnost a přes 480 000 jako vedlejší činnost.</p>
+					<p class="fw-bold text-secondary-theme">OSVČ představují významnou část českého trhu práce — asi 15 % všech zaměstnaných osob podle dat Eurostatu.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-5 bg-accent-theme">
+		<div class="container">
+			<h2 class="text-center mb-4 text-primary-theme">Aktuality</h2>
+			<p class="text-center mb-5">Posledních 10 novinek z našeho webu</p>
+			<div class="row g-4">
+				{[...Array(3)].map((_, i) => (
+					<div class="col-md-4">
+						<div class="card h-100 shadow-sm">
+							<div class="card-body">
+								<h5 class="card-title text-primary-theme">Novinka {i + 1}</h5>
+								<p class="card-text">Krátký popis aktuality, která se týká freelancerů v České republice.</p>
+								<a href="/news" class="btn btn-outline-primary btn-sm">Číst více</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="py-5">
+		<div class="container">
+			<h2 class="text-center mb-5">Naši partneři</h2>
+			<div class="row justify-content-center align-items-center text-center">
+				<div class="col-6 col-md-2 mb-4">Partner 1</div>
+				<div class="col-6 col-md-2 mb-4">Partner 2</div>
+				<div class="col-6 col-md-2 mb-4">Partner 3</div>
+				<div class="col-6 col-md-2 mb-4">Partner 4</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

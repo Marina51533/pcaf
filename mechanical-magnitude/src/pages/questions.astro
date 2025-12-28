@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import QuestionsBoard from '../components/QuestionsBoard.vue';
+const title = 'Dotazy | Czech Freelance Platform';
+---
+
+<BaseLayout title={title}>
+	<section class="py-5">
+		<div class="container">
+			<QuestionsBoard client:load />
+		</div>
+	</section>
+</BaseLayout>

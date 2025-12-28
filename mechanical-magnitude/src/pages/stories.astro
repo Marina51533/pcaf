@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Vaše příběhy | Czech Freelance Platform';
+
+const stories = [
+	{ name: 'Martin, Grafik', text: 'Díky asociaci jsem se dozvěděl o změnách v autorském zákoně včas. Pomohlo mi to upravit smlouvy s klienty.' },
+	{ name: 'Lucie, Copywriterka', text: 'Být na volné noze je svoboda, ale legislativa je džungle. Jsem ráda, že někdo bojuje za naše zájmy.' },
+	{ name: 'Tomáš, Programátor', text: 'Sdílení zkušeností s ostatními freelancery mi ušetřilo spoustu času při řešení daní.' },
+];
+---
+
+<BaseLayout title={title}>
+	<section class="py-5">
+		<div class="container">
+			<h1 class="mb-5 text-center text-primary-theme">Vaše příběhy</h1>
+			<div class="row g-4">
+				{stories.map((story, i) => (
+					<div class="col-md-4">
+						<div class={`card h-100 shadow-sm border-0 ${i % 2 === 0 ? 'bg-accent-theme' : 'bg-highlight-theme'}`}>
+							<div class="card-body text-center">
+								<div class="mb-3">
+									<i class="bi bi-quote fs-1 text-primary-theme"></i>
+								</div>
+								<p class="card-text fst-italic">"{story.text}"</p>
+								<h5 class="card-title mt-4 text-primary-theme">{story.name}</h5>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+			<div class="text-center mt-5">
+				<p>Máte svůj příběh? Podělte se o něj s námi!</p>
+				<a href="#" class="btn btn-secondary-theme">Sdílet příběh</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

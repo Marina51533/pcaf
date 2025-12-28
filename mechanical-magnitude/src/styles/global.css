@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  /* Theme Colors */
+  --color-primary: #0F4953;
+  --color-secondary: #F98E6E;
+  --color-accent: #CBF5EF;
+  --color-bg: #F9FCFB;
+  --color-highlight: #FFCFD2;
+  --color-text: #212529;
+  --color-white: #ffffff;
+
+  /* Fonts */
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+/* Custom Utility Classes */
+.bg-primary-theme { background-color: var(--color-primary) !important; color: var(--color-white) !important; }
+.bg-secondary-theme { background-color: var(--color-secondary) !important; color: var(--color-white) !important; }
+.bg-accent-theme { background-color: var(--color-accent) !important; }
+.bg-highlight-theme { background-color: var(--color-highlight) !important; }
+
+.text-primary-theme { color: var(--color-primary) !important; }
+.text-secondary-theme { color: var(--color-secondary) !important; }
+
+.btn-primary-theme {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.btn-primary-theme:hover {
+  opacity: 0.9;
+  color: var(--color-white);
+}
+
+.btn-secondary-theme {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  transition: opacity 0.2s;
+}
+
+.btn-secondary-theme:hover {
+  opacity: 0.9;
+  color: var(--color-white);
+}
+
+/* Mobile Adaptivity Tweaks */
+@media (max-width: 768px) {
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .container { padding-left: 20px; padding-right: 20px; }
+  .navbar-brand { font-size: 1.1rem; }
+}
+
+/* Bootstrap Overrides */
+.navbar {
+  padding: 1rem 0;
+}
+
+.navbar-nav .nav-link {
+  color: var(--color-white) !important;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link:hover {
+  opacity: 0.8;
+}
+
+.navbar-brand {
+  color: var(--color-white) !important;
+  font-weight: 700;
+}
+
+.card {
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Carousel Customization */
+.hero-slider {
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-item {
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 73, 83, 0.7); /* Using --color-primary with opacity */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.carousel-caption-custom {
+  max-width: 800px;
+  padding: 20px;
+}
+
+.carousel-caption-custom h1 {
+  color: var(--color-white) !important;
+}
+
+@media (max-width: 768px) {
+  .hero-slider, .carousel-item {
+    height: 500px;
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--color-secondary);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.5));
+}

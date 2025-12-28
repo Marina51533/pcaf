@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const title = 'Aktuality | Czech Freelance Platform';
+
+const news = [
+	{ title: 'Nová legislativa pro OSVČ', date: '20. 12. 2025', excerpt: 'Přehled změn, které nás čekají v příštím roce.' },
+	{ title: 'Workshop: Jak na daně', date: '15. 12. 2025', excerpt: 'Zveme vás na online workshop o daňovém přiznání.' },
+	{ title: 'Průzkum mezi freelancery', date: '10. 12. 2025', excerpt: 'Výsledky našeho velkého podzimního průzkumu.' },
+	{ title: 'Spolupráce s ministerstvem', date: '05. 12. 2025', excerpt: 'Byli jsme přizváni k diskuzi o změnách v zákoníku práce.' },
+	{ title: 'Nové výhody pro členy', date: '01. 12. 2025', excerpt: 'Představujeme nové partnery a slevy pro naši komunitu.' },
+];
+---
+
+<BaseLayout title={title}>
+	<section class="py-5">
+		<div class="container">
+			<h1 class="mb-5 text-primary-theme">Aktuality</h1>
+			<div class="row g-4">
+				{news.map((item) => (
+					<div class="col-md-6 col-lg-4">
+						<div class="card h-100 shadow-sm border-0 bg-white">
+							<div class="card-body">
+								<h5 class="card-title text-primary-theme">{item.title}</h5>
+								<h6 class="card-subtitle mb-2 text-secondary-theme">{item.date}</h6>
+								<p class="card-text">{item.excerpt}</p>
+								<a href="#" class="btn btn-link ps-0 text-primary-theme fw-bold">Číst více</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+</BaseLayout>
