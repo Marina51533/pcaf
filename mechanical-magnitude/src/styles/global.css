@@ -79,6 +79,8 @@ h1, h2, h3, h4, h5, h6 {
   .section-title { font-size: 2rem !important; }
   .section-problems { padding: 5rem 0 !important; }
   .how-to-text { font-size: 1.25rem !important; }
+  .problem-text { font-size: 1.25rem !important; }
+  .problem-number { font-size: 4rem !important; margin-right: 1rem !important; }
 }
 
 /* Goal Cards Styling */
@@ -97,6 +99,57 @@ h1, h2, h3, h4, h5, h6 {
 
 .how-to-item:hover {
   transform: translateX(10px);
+}
+
+/* Stats Section */
+.stat-box {
+  transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+  transform: translateX(15px);
+}
+
+.stat-number-wrapper {
+  min-width: 550px;
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.animate-pulse {
+  display: inline-block;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .stat-number-wrapper {
+    min-width: auto;
+    margin-bottom: 1rem;
+  }
+  .stat-box {
+    flex-direction: column;
+    align-items: flex-start !important;
+    text-align: left;
+  }
+  .stat-number {
+    font-size: 4rem !important;
+  }
+}
+
+.stat-number {
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.stat-box:hover .stat-number {
+  color: var(--color-secondary) !important;
 }
 
 .section-title {
