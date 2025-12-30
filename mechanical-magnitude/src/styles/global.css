@@ -124,6 +124,30 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateX(10px);
 }
 
+.how-to-image-wrapper {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-to-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .how-to-image-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-top: 2rem;
+  }
+}
+
 /* Stats Section */
 .stat-box {
   transition: transform 0.3s ease;
@@ -131,6 +155,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .stat-box:hover {
   transform: translateX(15px);
+}
+
+.section-stats {
+  padding: 10rem 0 25rem 0 !important;
+  background-image: url('/img/people.jpg'); /* People Vectors by Vecteezy: https://www.vecteezy.com/free-vector/people */
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .stat-number-wrapper {
@@ -152,6 +184,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .section-stats {
+    padding: 5rem 0 12rem 0 !important;
+  }
   .stat-number-wrapper {
     min-width: auto;
     margin-bottom: 1rem;
@@ -163,6 +198,9 @@ h1, h2, h3, h4, h5, h6 {
   }
   .stat-number {
     font-size: 4rem !important;
+  }
+  .section-stats .gap-5 {
+    gap: 2rem !important;
   }
 }
 
